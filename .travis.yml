@@ -28,7 +28,7 @@ script:
   - docker tag reverseproxy akem123/reverseproxy
 
 after_success:
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" docker.io
   - docker push akem123/udagram-api-feed
   - docker push akem123/udagram-api-user
   - docker push akem123/udagram-frontend:local
