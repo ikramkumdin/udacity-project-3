@@ -31,5 +31,5 @@ after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD" docker.io
   - docker push akem123/udagram-api-feed:latest
   - docker push akem123/udagram-api-user:latest
-  - docker push akem123/udagram-frontend:local
+  - docker push akem123/udagram-frontend:latest
   - docker push akem123/reverseproxy:latest

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-user
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      run: backend-user
+  template:
+    metadata:
+      labels:
+        run: backend-user
+    spec:
+      containers:
+        - name: backend-user
+          image: docker.io/newthingade/udagram-api-user
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
+          envFrom:
+          - configMapRef:
+              name: env-config
+          - secretRef:
+              name: env-secret
+          resources:
+            limits:
+              cpu: 500m
+            requests:
+              cpu: 200m
+
+             
+
